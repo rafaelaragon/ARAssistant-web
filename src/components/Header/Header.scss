@@ -1,0 +1,22 @@
+.Header {
+    background-color: #019AE8;
+    height: 10vh;
+
+    img {
+        margin-left: 2vh;
+        height: 10vh;
+    }
+    button {
+        float: right;
+        height: 100%;
+        width: 10vw;
+        font-weight: bold;
+        background-color: rgba($color: rgb(0, 134, 201), $alpha: 0.5);
+        border: none;
+        transition: background-color .25s, color .25s;
+    }
+    button:hover {
+        background-color: rgba(165, 99, 170, .75);
+        color: white;
+    }
+}
