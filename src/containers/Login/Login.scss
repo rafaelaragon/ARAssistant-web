@@ -1,15 +1,53 @@
- .Login {
-     input {
-         font-size: large;
-         display: block;
-         width: 40vw;
-         height: 5vh;
-         margin: 4vh auto;
-     }
-     button#login {
-         font-size: larger;
-         display: block;
-         margin: auto;
-         width: 25vw;
-     }
- }
+.Login {
+  .Main {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 88.9vw;
+    margin: 5vh 5vw;
+    background-color: #019ae8;
+    border: 0.5vh solid black;
+    border-left: 1vh solid black;
+    border-right: 1vh solid black;
+    border-radius: 5vh;
+    height: 60vh;
+    img {
+      margin: 5vh 15vw;
+      width: 50vh;
+    }
+  }
+  .Form {
+    border-radius: 5vh;
+    display: inline-block;
+    background-color: white;
+    width: 28vw;
+    height: 45vh;
+    vertical-align: top;
+    margin: 7vh 0;
+    h1 {
+      text-align: center;
+    }
+  }
+  input {
+    font-size: large;
+    display: block;
+    width: 20vw;
+    height: 5vh;
+    margin: 1vh auto;
+  }
+  label {
+    font-weight: bold;
+    font-size: 2.25vh;
+    margin: 0 4vw;
+  }
+  button#login {
+    font-size: 1.75vw;
+    height: 6vh;
+    display: block;
+    margin: 6vh auto 0;
+    width: 20vw;
+    border: none;
+    border-radius: 5vh;
+    font-weight: bolder;
+    background-color: #019AE8;
+  }
+}
