@@ -47,10 +47,10 @@ class Admin extends React.Component {
       children.push(<td key={user.email}>{user.email}</td>);
       children.push(
         <td key="icons" id="icons">
-          <Alert />
+          <Alert userUid={uids[i]}/>
           <FaTrash
             size="3vh"
-            color="#de4545"
+            id="delete"
             onClick={() => this.deleteUser(uids[i])}
           />
         </td>
@@ -60,8 +60,7 @@ class Admin extends React.Component {
     return table;
   };
 
-  //TODO
-
+  //Delete user from fbdb
   deleteUser = (uid) => {
     firebase
       .database()

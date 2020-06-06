@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Alert.css";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -8,8 +9,10 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { FaPencilAlt } from "react-icons/fa";
 import firebase from "firebase";
 
-export default function FormDialog() {
+export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
+
+  const [userUid] = useState(props);
 
   const [name, setName] = useState("John");
   const [surname, setSurname] = useState("Doe");
@@ -19,20 +22,24 @@ export default function FormDialog() {
     setOpen(true);
   };
 
-  //TODO edit user
+  //Edit user from fbdb
   const handleClose = (uid) => {
+    console.log("handleClose -> uid", typeof(uid));
     console.log("handleClose -> uid", uid);
     let ref =
       typeof uid == "string" ? firebase.database().ref("/user/") : null
       if(!!ref) {
-          ref.child(uid).set({'name': name, 'surname': surname, 'email': mail})
+          ref.child(uid).update({ 'name': name })
+          ref.child(uid).update({ 'surname': surname })
+          ref.child(uid).update({ 'email': mail })
+          console.log("Hecho")
       }
     setOpen(false);
   };
 
   return (
-    <div>
-      <FaPencilAlt size="3vh" color="#decc45" onClick={handleClickOpen} />
+    <div className="Alert">
+      <FaPencilAlt size="3vh" id="edit" onClick={handleClickOpen} />
       <Dialog
         open={open}
         onClose={handleClose}
@@ -46,6 +53,7 @@ export default function FormDialog() {
             id="name"
             label="Nombre"
             type="text"
+            defaultValue="John"
             fullWidth
             onChange={(event) => setName(event.target.value)}
           />
@@ -54,6 +62,7 @@ export default function FormDialog() {
             id="surname"
             label="Apellidos"
             type="text"
+            defaultValue="Doe"
             fullWidth
             onChange={(event) => setSurname(event.target.value)}
           />
@@ -62,6 +71,7 @@ export default function FormDialog() {
             id="mail"
             label="Mail"
             type="email"
+            defaultValue="johndoe@gmail.com"
             fullWidth
             onChange={(event) => setMail(event.target.value)}
           />
@@ -71,7 +81,7 @@ export default function FormDialog() {
             Cancelar
           </Button>
           <Button
-            onClick={() => handleClose("8RRHzxpmHhZMrdcZkfos9lqJz2R2")}
+            onClick={() => handleClose(userUid.userUid)}
             color="primary"
           >
             Aceptar

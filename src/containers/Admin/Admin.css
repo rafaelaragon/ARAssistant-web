@@ -1,1 +1,1 @@
-.Admin td{font-weight:bold}
+.Admin th{font-weight:bolder}.Admin td,.Admin th{text-align:center;font-weight:bold}.Admin td#icons{display:flex;justify-content:center;text-align:center}.Admin svg{margin:0 1.2vh}.Admin svg:hover{cursor:pointer}.Admin svg#delete{color:#de4545;transition:color 0.25s}.Admin svg#delete:hover{color:#ad3535}.Admin svg#edit{color:#decc45;transition:color 0.25s}.Admin svg#edit:hover{color:#b3a437}

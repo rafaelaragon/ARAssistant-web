@@ -1,5 +1,35 @@
 .Admin {
-    td {
-        font-weight: bold;
-    }
+  th {
+    font-weight: bolder;
+  }
+  td,
+  th {
+    text-align: center;
+    font-weight: bold;
+  }
+  td#icons {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  svg {
+    margin: 0 1.2vh;
+  }
+  svg:hover {
+    cursor: pointer;
+  }
+  svg#delete {
+    color: #de4545;
+    transition: color 0.25s;
+  }
+  svg#delete:hover {
+    color: #ad3535;
+  }
+  svg#edit {
+    color: #decc45;
+    transition: color 0.25s;
+  }
+  svg#edit:hover {
+    color: #b3a437;
+  }
 }
